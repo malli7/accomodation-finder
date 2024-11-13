@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  HomeIcon,
   MessageCircle,
   User,
   LogOut,
