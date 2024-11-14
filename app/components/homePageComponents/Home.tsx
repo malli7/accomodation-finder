@@ -57,6 +57,8 @@ export default function HomePage() {
   >([]);
   const [favorites, setFavorites] = useState<string[]>([]);
 
+
+
   useEffect(() => {
     // Retrieve favorites from the backend on component mount
     const fetchFavorites = async () => {
