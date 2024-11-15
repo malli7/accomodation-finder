@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {  useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { Send, ArrowLeft, MoreVertical, Building2 } from "lucide-react";
 import {
   DropdownMenu,
@@ -17,7 +17,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { useUnseenMessage } from "../UnseenMessageContext"; 
+import { useUnseenMessage } from "../UnseenMessageContext";
+
 type Friend = {
   id: string;
   name: string;
@@ -42,9 +43,7 @@ export default function ChatPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const selectedFriendId = searchParams.get("friendId");
-  const { setUnseenCount } = useUnseenMessage(); // Destructure setUnseenCount from the context
-
-
+  const { setUnseenCount } = useUnseenMessage();
 
   const [friends, setFriends] = useState<Friend[]>([]);
   const [friend, setFriend] = useState<Friend | null>(null);
@@ -52,6 +51,7 @@ export default function ChatPage() {
   const [newMessage, setNewMessage] = useState("");
   const [chatId, setChatId] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMobileChatOpen, setIsMobileChatOpen] = useState(false); // New state
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const filteredFriends = friends.filter((friend) =>
@@ -125,55 +125,58 @@ export default function ChatPage() {
     const newChatId = generateChatId(user?.id || "", selectedFriend.id);
     setChatId(newChatId);
 
-    // Update unseen status in friends list
     setFriends((prevFriends) =>
       prevFriends.map((f) =>
         f.id === selectedFriend.id ? { ...f, unseenMessages: false } : f
       )
     );
 
-    // Load messages and mark unseen messages as seen
     loadMessages(newChatId);
+    setIsMobileChatOpen(true); // Open chat on mobile
   };
-
   const loadFriends = async () => {
     const friendsRef = ref(database, `users/${user?.id}/friends`);
     onValue(friendsRef, async (snapshot) => {
       const data = snapshot.val();
       const friendsList = data ? Object.keys(data) : [];
-
+  
       const friendsData = await Promise.all(
         friendsList.map(async (friendId) => {
+          const friendRef = ref(database, `users/${friendId}`);
+          const friendSnapshot = await get(friendRef);
+          const friendData = friendSnapshot.val();
+  
           const chatId = generateChatId(user?.id || "", friendId);
           const messagesRef = ref(database, `chats/${chatId}/messages`);
-          const snapshot = await get(messagesRef);
-          const messages = snapshot.val();
+          const messagesSnapshot = await get(messagesRef);
+          const messages = messagesSnapshot.val();
           const lastMessage = messages
             ? (Object.values(messages).pop() as Message)
             : null;
+  
           return {
             id: friendId,
-            name: lastMessage?.senderName || "Friend",
-            photoUrl: "",
+            name: friendData?.name || "Unknown", // Fetch friend's name
+            photoUrl: friendData?.photoUrl || "", // Fetch friend's photo URL
             lastMessage: lastMessage?.text || "No messages yet",
             unseenMessages:
               lastMessage?.receiverId === user?.id && !lastMessage?.seen,
           };
         })
       );
+  
       setFriends(friendsData as Friend[]);
     });
   };
+  
 
   useEffect(() => {
     loadFriends();
   }, [user?.id]);
 
   useEffect(() => {
-   setUnseenCount(unseenFriendsCount); 
+    setUnseenCount(unseenFriendsCount);
   }, [unseenFriendsCount]);
-
-  
 
   useEffect(() => {
     if (selectedFriendId) {
@@ -202,7 +205,11 @@ export default function ChatPage() {
 
   return (
     <div className="flex h-screen bg-gray-100 flex-col sm:flex-row">
-      <aside className="w-full sm:w-1/4 bg-white border-r">
+      <aside
+        className={`w-full sm:w-1/4 bg-white border-r ${
+          isMobileChatOpen ? "hidden" : "block"
+        } sm:block`}
+      >
         <div className="p-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold text-primary">
             Chat {unseenFriendsCount > 0 && `(${unseenFriendsCount} new)`}
@@ -259,7 +266,11 @@ export default function ChatPage() {
         </ScrollArea>
       </aside>
 
-      <main className="flex-1 p-2 rounded-sm bg-[#0B141A]">
+      <main
+        className={`flex-1 p-2 rounded-sm bg-[#0B141A] ${
+          isMobileChatOpen ? "block" : "hidden"
+        } sm:block`}
+      >
         {friend ? (
           <>
             <header className="bg-card rounded-lg shadow-sm p-4 flex items-center">
@@ -267,7 +278,7 @@ export default function ChatPage() {
                 variant="ghost"
                 size="icon"
                 className="mr-2"
-                onClick={() => router.push("/")}
+                onClick={() => setIsMobileChatOpen(false)} // Back button
               >
                 <ArrowLeft className="h-6 w-6" />
               </Button>

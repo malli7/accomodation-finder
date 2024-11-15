@@ -12,7 +12,6 @@ export default function MessageListener() {
   const { user } = useUser();
   const router = useRouter();
   const url = usePathname()
-  console.log(url)
 
   // Initialize notified messages from sessionStorage
   const notifiedMessages = new Set(
