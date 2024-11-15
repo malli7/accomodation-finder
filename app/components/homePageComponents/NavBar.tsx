@@ -143,7 +143,7 @@ export default function NavBar() {
           <Link href="/" className="flex items-center space-x-2">
             <img src={"/logo.png"} className="w-10 h-10" />
 
-            <span className="text-2xl font-bold text-primary">DesiDwaar</span>
+            <span className="text-2xl font-bold text-primary">Acco-Finder</span>
           </Link>
           <div className="hidden md:flex items-center space-x-2">
             <NavItems />

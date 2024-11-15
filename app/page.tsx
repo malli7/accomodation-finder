@@ -10,7 +10,7 @@ export default function EnhancedHomepage() {
           <div className="flex items-center justify-between mb-8">
             <Link href="/" className="flex items-center space-x-2 z-10">
               <img src={"/logo.png"} className="w-10 h-10" />
-              <span className="text-3xl font-bold text-white">DesiDwaar</span>
+              <span className="text-3xl font-bold text-white">Acco-Finder</span>
             </Link>
           </div>
           <div className="text-center max-w-4xl mx-auto">
@@ -35,7 +35,7 @@ export default function EnhancedHomepage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up">
-            Why DesiDwaar Crushes WhatsApp Groups
+            Why Acco-Finder Crushes WhatsApp Groups
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <EnhancedFeatureCard
@@ -69,7 +69,7 @@ export default function EnhancedHomepage() {
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            How DesiDwaar Transforms Your Experience
+            How Acco-Finder Transforms Your Experience
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4">
             <EnhancedStepCard
@@ -97,7 +97,7 @@ export default function EnhancedHomepage() {
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             {
-              "Don't waste another minute in chaotic WhatsApp groups. Join DesiDwaar now and experience the future of student networking and support."
+              "Don't waste another minute in chaotic WhatsApp groups. Join Acco-Finder now and experience the future of student networking and support."
             }
           </p>
           <Link
@@ -114,12 +114,12 @@ export default function EnhancedHomepage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <Link href={"/home"} className="text-lg font-semibold mb-4">
-                Explore DesiDwaar
+                Explore Acco-Finder
               </Link>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
-              <p>Email: support@desidwaar.com</p>
+              <p>Email: support@Acco-Finder.com</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Join Our Community</h3>

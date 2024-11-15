@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DesiDwaar",
+  title: "Acco-Finder",
   description: "Your Gateway to Indian Student Life in the USA",
 };
 

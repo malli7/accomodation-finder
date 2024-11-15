@@ -307,7 +307,7 @@ export default function HomePage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-                <p>Email: support@desidwaar.com</p>
+                <p>Email: support@acco-finder.com</p>
                 <p>Phone: +1 (123) 456-7890</p>
               </div>
               <div>
