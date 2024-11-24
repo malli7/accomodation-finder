@@ -4,21 +4,27 @@ import { firestoredb, db } from "../firebaseConfig"; // Ensure you import Realti
 import { currentUser } from "@clerk/nextjs/server";
 
 export const SyncUserToFirestore = async () => {
-  const user = await currentUser();
-  const id = user?.id || "";
-  if (!id) return;
-
   try {
+    const user = await currentUser();
+
+    if (!user || !user.id) {
+      console.log("User is not available yet. Retrying...");
+      return; // Exit early if the user is not ready
+    }
+
+    const id = user.id;
+
     // Firestore Logic
     const userRef = doc(firestoredb, "users", id);
     const userSnap = await getDoc(userRef);
-    if (!userSnap.exists() && user) {
+
+    if (!userSnap.exists()) {
       const userData = {
         id: user.id,
-        email: user.primaryEmailAddress?.emailAddress,
+        email: user.primaryEmailAddress?.emailAddress || "",
         createdAt: user.createdAt,
         name: user.fullName || `${user.firstName} ${user.lastName}`,
-        photoUrl:user.imageUrl,
+        photoUrl: user.imageUrl,
         listings: [],
         wishlist: [],
       };
@@ -35,6 +41,6 @@ export const SyncUserToFirestore = async () => {
       console.log("User added to Realtime Database:", user.id);
     }
   } catch (error) {
-    console.error("Error adding user to Firestore or Realtime Database:", error);
+    console.error("Error syncing user to Firestore or Realtime Database:", error);
   }
 };
