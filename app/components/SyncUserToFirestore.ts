@@ -8,6 +8,7 @@ export const SyncUserToFirestore = async () => {
     // Poll for the user until it's retrieved
     const waitForUser = async () => {
       let user = await currentUser();
+      console.log(user)
       let attempts = 0;
 
       // Retry until user is fetched or a maximum number of attempts is reached
