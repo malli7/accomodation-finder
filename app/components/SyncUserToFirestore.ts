@@ -5,13 +5,25 @@ import { currentUser } from "@clerk/nextjs/server";
 
 export const SyncUserToFirestore = async () => {
   try {
-    const user = await currentUser();
+    // Poll for the user until it's retrieved
+    const waitForUser = async () => {
+      let user = await currentUser();
+      let attempts = 0;
 
-    if (!user || !user.id) {
-      console.log("User is not available yet. Retrying...");
-      return; // Exit early if the user is not ready
-    }
+      // Retry until user is fetched or a maximum number of attempts is reached
+      while (!user && attempts < 10) {
+        await new Promise((resolve) => setTimeout(resolve, 500)); // Wait 500ms
+        user = await currentUser();
+        attempts++;
+      }
 
+      if (!user) {
+        throw new Error("Failed to retrieve user details after multiple attempts");
+      }
+      return user;
+    };
+
+    const user = await waitForUser(); // Wait until user details are retrieved
     const id = user.id;
 
     // Firestore Logic
