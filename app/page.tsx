@@ -176,7 +176,7 @@ export default function EnhancedHomepage() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} Acco-Finder. All rights reserved.
+            &copy; 2024 Acco-Finder. All rights reserved.
           </p>
         </div>
       </footer>
