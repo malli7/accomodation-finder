@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import { useUser } from "@clerk/nextjs";
 
-export const SyncUserToFirestore2 = async () => {
-  const { user } = await useUser();
+
+export const SyncUserToFirestore2 = () => {
+  const { user } = useUser();
   if (!user) {
     console.error("No user found");
     return;
@@ -18,22 +19,22 @@ export const SyncUserToFirestore2 = async () => {
     imageUrl: user.imageUrl,
   };
 
-  try {
-    const response = await fetch("/api/syncuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ user: userData }),
+  fetch("/api/syncuser", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user: userData }),
+  })
+    .then((response) =>
+      response.json().then((data) => {
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to sync user");
+        }
+        console.log("User synced successfully:", data.message);
+      })
+    )
+    .catch((error) => {
+      console.error("Error syncing user to backend:", error);
     });
-
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.error || "Failed to sync user");
-    }
-
-    console.log("User synced successfully:", data.message);
-  } catch (error) {
-    console.error("Error syncing user to backend:", error);
-  }
 };
