@@ -7,6 +7,8 @@ import {
   Menu,
   Users,
   Building2,
+  Plus,
+  Tag,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -83,6 +85,7 @@ export default function NavBar() {
 
   const NavItems = () => (
     <>
+      <NavItem href="/add-listing" icon={Plus} label="Add Listing" />
       <NavItem href="/home" icon={Building2} label="Accommodations" />
       <NavItem href="/community" icon={Users} label="Community" />
       <NavItem
@@ -91,6 +94,7 @@ export default function NavBar() {
         label="Chat"
         count={unseenCount}
       />
+      <NavItem href="/offers" icon={Tag} label="Offers" />
       <NavItem href="/profile" icon={User} label="Profile" />
       <TooltipProvider>
         <Tooltip>
@@ -109,6 +113,10 @@ export default function NavBar() {
 
   const MobileNavItems = () => (
     <>
+      <Link href="/add-listing" className="flex items-center space-x-2 py-2">
+        <Plus className="w-5 h-5" />
+        <span>Add Listing</span>
+      </Link>
       <Link href="/home" className="flex items-center space-x-2 py-2">
         <Building2 className="w-5 h-5" />
         <span>Accommodations</span>
@@ -120,6 +128,10 @@ export default function NavBar() {
       <Link href="/chat" className="flex items-center space-x-2 py-2">
         <MessageCircle className="w-5 h-5" />
         <span>Chat</span>
+      </Link>
+      <Link href="/offers" className="flex items-center space-x-2 py-2">
+        <Tag className="w-5 h-5" />
+        <span>Offers</span>
       </Link>
       <Link href="/profile" className="flex items-center space-x-2 py-2">
         <User className="w-5 h-5" />
@@ -142,7 +154,6 @@ export default function NavBar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <img src={"/logo.png"} className="w-10 h-10" />
-
             <span className="text-2xl font-bold text-primary">Acco-Finder</span>
           </Link>
           <div className="hidden md:flex items-center space-x-2">

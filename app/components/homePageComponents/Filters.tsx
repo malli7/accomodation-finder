@@ -157,6 +157,10 @@ const FiltersPage = ({
                   "parking",
                   "Dryer",
                   "Air Conditioning",
+                  "Heating",
+                  "Washer",
+                  "Essentials",
+                  "Smoke Detector",
                 ].map((amenity) => (
                   <label key={amenity} className="flex items-center">
                     <input

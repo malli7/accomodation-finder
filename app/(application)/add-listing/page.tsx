@@ -11,6 +11,12 @@ import {
   Car,
   Trash2,
   ArrowLeft,
+  Thermometer,
+  Droplet,
+  WashingMachine,
+  Wind,
+  BedDouble,
+  ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -60,6 +66,12 @@ const amenitiesOptions = [
   { id: "tv", label: "TV", icon: Tv },
   { id: "kitchen", label: "Kitchen", icon: Utensils },
   { id: "parking", label: "Parking", icon: Car },
+  { id: "heating", label: "Heating", icon: Thermometer },
+  { id: "air-conditioning", label: "Air Conditioning", icon: Droplet },
+  { id: "washer", label: "Washer", icon: WashingMachine },
+  { id: "dryer", label: "Dryer", icon: Wind },
+  { id: "essentials", label: "Essentials", icon: BedDouble },
+  { id: "smoke-detector", label: "Smoke Detector", icon: ShieldCheck },
   { id: "other", label: "Other", icon: null },
 ];
 
