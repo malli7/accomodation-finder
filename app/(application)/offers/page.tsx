@@ -118,43 +118,43 @@ export default function OffersPage() {
 
       {/* Featured Banner */}
       {featuredBanner && (
-        <section className="px-4 py-8">
-          <div className="container mx-auto max-w-6xl">
-            <Card className="group relative overflow-hidden transition-all hover:scale-105">
-              <CardHeader className="relative h-64 sm:h-80">
-                <Image
-                  src={featuredBanner.image}
-                  alt="Special Student Offer"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-purple-600/80" />
-                <div className="absolute inset-0 flex flex-col items-start justify-center p-6 text-white">
-                  <Badge className="mb-2 bg-yellow-500 text-yellow-950">
-                    Featured Offer
-                  </Badge>
-                  <h2 className="mb-2 text-3xl font-bold sm:text-4xl">
-                    {featuredBanner.title}
-                  </h2>
-                  <p className="mb-4 max-w-md text-lg">
-                    {featuredBanner.description}
-                  </p>
-
-                  <Link
-                    className="w-full"
-                    href={featuredBanner.link || ""}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="secondary" size="lg">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </CardHeader>
-            </Card>
-          </div>
-        </section>
+        <section className="px-4 py-6 sm:py-8 md:py-12">
+        <div className="container mx-auto max-w-6xl">
+          <Card className="group relative overflow-hidden transition-all hover:scale-105">
+            <CardHeader className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px]">
+              <Image
+                src={featuredBanner.image}
+                alt="Special Student Offer"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-purple-600/80" />
+              <div className="absolute inset-0 flex flex-col items-start justify-center p-4 sm:p-6 md:p-8 text-white">
+                <Badge className="mb-2 bg-yellow-500 text-yellow-950 text-xs sm:text-sm">
+                  Featured Offer
+                </Badge>
+                <h2 className="mb-2 text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {featuredBanner.title}
+                </h2>
+                <p className="mb-4 max-w-md text-sm sm:text-base md:text-lg">
+                  {featuredBanner.description}
+                </p>
+  
+                <Link
+                  className="w-full sm:w-auto"
+                  href={featuredBanner.link || ""}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="secondary" size="sm" className="w-full sm:w-auto">
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
       )}
 
       {/* Featured Offers */}
