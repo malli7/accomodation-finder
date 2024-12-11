@@ -1,37 +1,156 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Accommodation Finder
 
-## Getting Started
+Welcome to **Accommodation Finder**, a one-stop platform for international students studying in the U.S. to find and secure the best accommodation and connect with a supportive community. Designed with user-friendliness and efficiency in mind, Accommodation Finder bridges the gap between housing needs and real-time solutions.
 
-First, run the development server:
+![Accommodation Finder Banner](https://via.placeholder.com/1000x300.png?text=Accommodation+Finder+Platform)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. 🏠 Accommodation Listings
+- Search accommodations by **location**.
+- Explore verified listings with detailed descriptions.
+- **Filters**: Price range, amenities, proximity to universities.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. 🌍 Community Page
+- **Post queries** and get answers from other students.
+- Share experiences and tips for navigating student life.
 
-## Learn More
+### 3. 💬 Real-Time Chat
+- **One-on-one messaging** with other users.
+- Notifications for new messages.
+- Chat history for seamless communication.
 
-To learn more about Next.js, take a look at the following resources:
+### 4. 👤 User Profiles
+- Personalize your profile with photos and details.
+- Showcase housing preferences or community interests.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. 🔍 Easy Navigation
+- Clean and responsive UI optimized for all devices.
+- Intuitive design for effortless browsing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technology Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Frontend**: [Next.js](https://nextjs.org/) with TypeScript for blazing-fast performance and scalability.
+- **Backend**: Firebase Realtime Database for seamless real-time updates.
+- **Authentication**: Clerk for secure user sign-ups and logins.
+- **Hosting**: Deployed with Vercel for global accessibility.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# accomodation-finder
+---
+
+## 🎯 Objectives
+
+Accommodation Finder aims to:
+- Help students find accommodations quickly and easily.
+- Provide a platform for students to connect and share insights.
+- Build a vibrant community for international students in the U.S.
+
+---
+
+## 🧩 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+- Node.js (>= 16.x)
+- npm or yarn
+- Firebase account
+- Clerk account for authentication setup
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/malli7/accomodation-finder.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd accomodation-finder
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+4. Create a `.env` file in the root directory and configure the following:
+   ```env
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+   NEXT_PUBLIC_CLERK_FRONTEND_API=your_clerk_frontend_api
+   ```
+
+5. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+6. Open your browser and visit:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+### Steps to Contribute:
+1. Fork the project.
+2. Create your feature branch:
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. Open a Pull Request.
+
+---
+
+## 🛡️ License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 🌟 Acknowledgements
+
+- **Next.js** for an outstanding frontend framework.
+- **Firebase** for real-time capabilities.
+- **Clerk** for robust authentication.
+- **Vercel** for hosting excellence.
+
+---
+
+## 📧 Contact
+
+For any inquiries, feel free to reach out:
+- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Website**: [acco-finder.com](https://acco-finder.com)
+
+---
+
+## 🌍 Live Demo
+
+Check out the live version of Accommodation Finder:
+👉 [Accommodation Finder Live](https://acco-finder.com)
+
+---
+
+> "Find your home away from home with Accommodation Finder!"
