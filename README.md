@@ -2,6 +2,7 @@
 
 Welcome to **Accommodation Finder**, a one-stop platform for international students studying in the U.S. to find and secure the best accommodation and connect with a supportive community. Designed with user-friendliness and efficiency in mind, Accommodation Finder bridges the gap between housing needs and real-time solutions.
 
+![Accommodation Finder Banner](https://res.cloudinary.com/naacloud/image/upload/v1733923396/kcaibazx2ia9gnwvcepw.png)
 
 ---
 
@@ -153,3 +154,4 @@ Check out the live version of Accommodation Finder:
 ---
 
 > "Find your home away from home with Accommodation Finder!"
+
