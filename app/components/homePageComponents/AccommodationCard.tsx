@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import {
-  Heart,
   Bed,
   Bath,
   Users,
@@ -142,6 +141,7 @@ function FullScreenImageViewer({
   );
 }
 
+//TODO: wishlist functionality
 export default function AccommodationCard({
   title,
   address,
@@ -157,9 +157,7 @@ export default function AccommodationCard({
   rent,
   otherCharges,
   imageUrls,
-  isFavorite,
   userId,
-  onFavoriteToggle,
 }: AccommodationCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showFullScreen, setShowFullScreen] = useState(false);
@@ -221,18 +219,7 @@ export default function AccommodationCard({
               <p className="text-gray-500">No image available</p>
             </div>
           )}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full z-10 hover:bg-white/90"
-            onClick={onFavoriteToggle}
-          >
-            <Heart
-              className={`w-5 h-5 ${
-                isFavorite ? "text-red-500 fill-current" : "text-gray-600"
-              }`}
-            />
-          </Button>
+          
         </div>
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-4">
