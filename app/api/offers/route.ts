@@ -17,13 +17,12 @@ enum OfferCategory {
   ADDITIONAL_OFFERS = "additionalOffers",
 }
 
-// Define the structure of the offer data
 interface OfferData {
   id?: string;
   title: string;
   description: string;
-  category: OfferCategory; // Main category
-  subCategory?: string; // Optional subcategory (e.g., tech, food, etc.)
+  category: OfferCategory; 
+  subCategory?: string; 
   discount?: string;
   image: string;
   badge?: { text: string; color: string };
@@ -33,14 +32,12 @@ interface OfferData {
 // GET Route - Fetch categorized offers
 export async function GET() {
   try {
-    // Fetch all offers from the Firestore collection
     const offersSnapshot = await getDocs(collection(db, "offers"));
     const offers = offersSnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     })) as OfferData[];
 
-    // Categorize the offers
     const featuredBanner = offers.find(
       (offer) => offer.category === OfferCategory.FEATURED_BANNER
     );
@@ -71,12 +68,10 @@ export async function POST(request: Request) {
   try {
     const offerData: OfferData = await request.json();
 
-    // Validate the main category
     if (!Object.values(OfferCategory).includes(offerData.category)) {
       return NextResponse.json({ error: "Invalid category" }, { status: 400 });
     }
 
-    // Add the offer/banner to Firestore
     const offerRef = await addDoc(collection(db, "offers"), {
       ...offerData,
       timestamp: serverTimestamp(),
@@ -104,7 +99,6 @@ export async function PATCH(request: Request) {
       );
     }
 
-    // Validate category if it's being updated
     if (
       updatedData.category &&
       !Object.values(OfferCategory).includes(updatedData.category)

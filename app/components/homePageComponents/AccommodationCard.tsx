@@ -13,6 +13,13 @@ import {
   Wifi,
   Car,
   Calendar,
+  Tv,
+  Thermometer,
+  Droplet,
+  WashingMachine,
+  Wind,
+  BedDouble,
+  ShieldCheck,
 } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,6 +52,13 @@ const amenityIcons: { [key: string]: JSX.Element } = {
   wifi: <Wifi className="w-4 h-4" />,
   parking: <Car className="w-4 h-4" />,
   kitchen: <Utensils className="w-4 h-4" />,
+  tv: <Tv className="w-4 h-4" />,
+  heating: <Thermometer className="w-4 h-4" />,
+  "air-conditioning": <Droplet className="w-4 h-4" />,
+  washer: <WashingMachine className="w-4 h-4" />,
+  dryer: <Wind className="w-4 h-4" />,
+  essentials: <BedDouble className="w-4 h-4" />,
+  "smoke-detector": <ShieldCheck className="w-4 h-4" />,
 };
 
 function FullScreenImageViewer({
@@ -78,11 +92,11 @@ function FullScreenImageViewer({
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+    <div className="w-screen h-screen fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
       <Button
         variant="ghost"
         size="icon"
-        className="absolute top-4 right-4 text-white hover:bg-white/20"
+        className="absolute z-50 top-4 right-4 text-white hover:bg-white/20"
         onClick={onClose}
       >
         <X className="w-6 h-6" />
@@ -171,7 +185,7 @@ export default function AccommodationCard({
   return (
     <>
       <Card className="w-full max-w-md mx-auto overflow-hidden bg-white shadow-lg rounded-xl transition-all duration-300 hover:shadow-xl">
-        <div className="relative h-64">
+        <div className="relative h-64" onClick={() => setShowFullScreen(true)}>
           {imageUrls && imageUrls.length > 0 ? (
             <>
               <Image
@@ -179,7 +193,6 @@ export default function AccommodationCard({
                 src={imageUrls[currentImageIndex]}
                 alt={`${title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover cursor-pointer"
-                onClick={() => setShowFullScreen(true)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               {imageUrls.length > 1 && (

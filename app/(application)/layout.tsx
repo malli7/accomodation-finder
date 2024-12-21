@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ClerkProviders from "../providers/ClerkProviders";
-import { UnseenMessageProvider } from "./UnseenMessageContext";
+import { UnseenMessageProvider } from "../providers/UnseenMessageContext";
 import MessageListener from "../components/MessageListener";
 import { ToastContainer } from "react-toastify";
 

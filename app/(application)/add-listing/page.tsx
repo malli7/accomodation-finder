@@ -40,7 +40,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Autocomplete } from "@react-google-maps/api";
 import GoogleMapsLoader from "../../components/GoogleMapsLoader";
-import { uploadImageToCloudinary } from "../../components/uploadImageToCloudinary";
+import { uploadImageToCloudinary } from "../../utils/uploadImageToCloudinary";
 import Image from "next/image";
 
 interface ListingData {

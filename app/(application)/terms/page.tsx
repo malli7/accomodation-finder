@@ -6,8 +6,8 @@ import { Book, Scale, FileCheck, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import Footer from "@/app/components/other/Footer";
-import Nav from "@/app/components/other/Nav";
+import Footer from "@/app/components/Footer";
+import Nav from "@/app/components/Nav";
 
 export default function TermsAndConditionsPage() {
   return (

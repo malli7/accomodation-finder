@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import Footer from "@/app/components/other/Footer";
-import Nav from "@/app/components/other/Nav";
+import Footer from "@/app/components/Footer";
+import Nav from "@/app/components/Nav";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -36,10 +36,10 @@ export default function ContactPage() {
     //mail to us
     emailjs
       .send(
-        "service_dnopx1n",
-        "template_4v7c9w7",
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_NAME || "",
+        process.env.NEXT_PUBLIC_EMAIL_SENDER_TEMPLATE || "",
         formData,
-        "qWDzFPREiUdeMM8hZ"
+        process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY || ""
       )
       .then(
         () => {},
@@ -53,10 +53,10 @@ export default function ContactPage() {
     //mail to user
     emailjs
       .send(
-        "service_dnopx1n",
-        "template_faczxvj",
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_NAME || "",
+        process.env.NEXT_PUBLIC_EMAIL_RECIEVER_TEMPLATE || "",
         formData,
-        "qWDzFPREiUdeMM8hZ"
+        process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY || ""
       )
       .then(
         () => {

@@ -1,7 +1,89 @@
 import Link from "next/link";
-import { Home, Users, MessageCircle, UserPlus, ArrowRight, XIcon } from "lucide-react";
+import {
+  Home,
+  Users,
+  MessageCircle,
+  UserPlus,
+  ArrowRight,
+  XIcon,
+} from "lucide-react";
 
-export default function EnhancedHomepage() {
+interface StepCardProps {
+  number: number;
+  title: string;
+}
+
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const Features = [
+  {
+    icon: <Home className="w-12 h-12 text-blue-500" />,
+    title: "Organized Housing Search",
+    description:
+      "No more scrolling through endless messages. Find your perfect home with our structured listings.",
+    image:
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  },
+  {
+    icon: <Users className="w-12 h-12 text-blue-500" />,
+    title: "Verified Community",
+    description:
+      "Say goodbye to spam and fake profiles. Connect with real peers who've got your back.",
+    image:
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+  },
+  {
+    icon: <MessageCircle className="w-12 h-12 text-blue-500" />,
+    title: "Focused Discussions",
+    description:
+      "No more off-topic chatter. Get answers and advice in dedicated forums.",
+    image:
+      "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  },
+  {
+    icon: <UserPlus className="w-12 h-12 text-blue-500" />,
+    title: "Expand Your Network",
+    description:
+      "Build meaningful connections beyond random group chats. Your future best friend or job referral is here.",
+    image:
+      "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+  },
+];
+
+function FeatureCard({ icon, title, description, image }: FeatureCardProps) {
+  return (
+    <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up">
+      <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+      <div className="bg-blue-100 p-4 rounded-full mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  );
+}
+
+function StepCard({ number, title }: StepCardProps) {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-lg text-center flex-1 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up">
+      <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+        {number}
+      </div>
+      <h3 className="text-lg font-semibold">{title}</h3>
+    </div>
+  );
+}
+
+export default function Homepage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-black">
       <section className="relative bg-gradient-to-b from-blue-600 to-blue-800 text-white">
@@ -38,30 +120,15 @@ export default function EnhancedHomepage() {
             Why Acco-Finder Crushes WhatsApp Groups
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <EnhancedFeatureCard
-              icon={<Home className="w-12 h-12 text-blue-500" />}
-              title="Organized Housing Search"
-              description="No more scrolling through endless messages. Find your perfect home with our structured listings."
-              image="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            />
-            <EnhancedFeatureCard
-              icon={<Users className="w-12 h-12 text-blue-500" />}
-              title="Verified Community"
-              description="Say goodbye to spam and fake profiles. Connect with real peers who've got your back."
-              image="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-            />
-            <EnhancedFeatureCard
-              icon={<MessageCircle className="w-12 h-12 text-blue-500" />}
-              title="Focused Discussions"
-              description="No more off-topic chatter. Get answers and advice in dedicated forums."
-              image="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            />
-            <EnhancedFeatureCard
-              icon={<UserPlus className="w-12 h-12 text-blue-500" />}
-              title="Expand Your Network"
-              description="Build meaningful connections beyond random group chats. Your future best friend or job referral is here."
-              image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-            />
+            {Features.map((feature) => (
+              <FeatureCard
+                key={feature.title}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -72,17 +139,17 @@ export default function EnhancedHomepage() {
             How Acco-Finder Transforms Your Experience
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4">
-            <EnhancedStepCard
+            <StepCard
               number={1}
               title="Create your profile and join a thriving community"
             />
             <ArrowRight className="hidden md:block w-8 h-8 text-blue-300" />
-            <EnhancedStepCard
+            <StepCard
               number={2}
               title="Access curated listings and expert advice"
             />
             <ArrowRight className="hidden md:block w-8 h-8 text-blue-300" />
-            <EnhancedStepCard
+            <StepCard
               number={3}
               title="Connect, settle in, and thrive in your new home"
             />
@@ -137,7 +204,7 @@ export default function EnhancedHomepage() {
             </div>
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Get in Touch</h3>
-              <p className="text-gray-300">Email: support@acco-finder.com</p>
+              <p className="text-gray-300">Email: accofinder0@gmail.com</p>
             </div>
             <div className="flex space-x-4">
               <a href="#" className="text-white hover:text-blue-300">
@@ -169,62 +236,15 @@ export default function EnhancedHomepage() {
                 </svg>
               </a>
               <a href="#" className="text-white hover:text-blue-300">
-                <XIcon/>
+                <XIcon />
               </a>
             </div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p>
-            &copy; 2024 Acco-Finder. All rights reserved.
-          </p>
+          <p>&copy; 2024 Acco-Finder. All rights reserved.</p>
         </div>
       </footer>
-    </div>
-  );
-}
-
-interface EnhancedFeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  image: string;
-}
-
-function EnhancedFeatureCard({
-  icon,
-  title,
-  description,
-  image,
-}: EnhancedFeatureCardProps) {
-  return (
-    <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up">
-      <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
-        />
-      </div>
-      <div className="bg-blue-100 p-4 rounded-full mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
-  );
-}
-
-interface EnhancedStepCardProps {
-  number: number;
-  title: string;
-}
-
-function EnhancedStepCard({ number, title }: EnhancedStepCardProps) {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-lg text-center flex-1 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up">
-      <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
-        {number}
-      </div>
-      <h3 className="text-lg font-semibold">{title}</h3>
     </div>
   );
 }

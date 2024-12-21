@@ -308,7 +308,7 @@ export default function HomePage() {
               </div>
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold">Get in Touch</h3>
-                <p className="text-gray-300">Email: support@acco-finder.com</p>
+                <p className="text-gray-300">Email: accofinder0@gmail.com</p>
               </div>
               <div className="flex space-x-4">
                 <a href="#" className="text-white hover:text-blue-300">

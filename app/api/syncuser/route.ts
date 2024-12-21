@@ -1,6 +1,6 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { ref, set } from "firebase/database"; // Import for Realtime Database
-import { firestoredb, db } from "../../firebaseConfig"; // Update the path if needed
+import { ref, set } from "firebase/database"; 
+import { firestoredb, db } from "../../firebaseConfig"; 
 import { NextResponse } from "next/server";
 
 export const POST = async(req:Request)=>  {
@@ -33,7 +33,7 @@ export const POST = async(req:Request)=>  {
       const realtimeUserRef = ref(db, `users/${user.id}`);
       await set(realtimeUserRef, {
         ...userData,
-        friends: {}, // Initialize an empty friends list if required
+        friends: {}, 
       });
       console.log("User added to Realtime Database:", user.id);
     }

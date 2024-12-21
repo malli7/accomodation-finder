@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/tooltip";
 import { DialogTitle } from "@/components/ui/dialog";
 import { useClerk } from "@clerk/nextjs";
-import { useUnseenMessage } from "@/app/(application)/UnseenMessageContext";
+import { useUnseenMessage } from "@/app/providers/UnseenMessageContext";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);

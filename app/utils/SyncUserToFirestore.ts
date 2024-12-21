@@ -2,7 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 
 
-export const SyncUserToFirestore2 = () => {
+export const SyncUserToFirestore = () => {
   const { user } = useUser();
   if (!user) {
     console.error("No user found");

@@ -22,7 +22,6 @@ export const POST = async (req: Request) => {
   try {
     const friends: Friend[] = [];
 
-    // Loop through each friendId and fetch the friend data from Firebase
     for (const friendId of friendIds) {
       console.log("friend:", friendId);
       const friendRef = ref(db, `users/${friendId}`);

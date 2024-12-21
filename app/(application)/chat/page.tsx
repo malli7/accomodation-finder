@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { useUnseenMessage } from "../UnseenMessageContext";
+import { useUnseenMessage } from "../../providers/UnseenMessageContext";
 
 type Friend = {
   id: string;

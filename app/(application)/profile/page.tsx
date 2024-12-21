@@ -1,4 +1,3 @@
-// profile.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -60,6 +59,7 @@ const uploadImageToCloudinary = async (file: File): Promise<string> => {
     "cloud_name",
     process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || ""
   );
+  formData.append("transformation", "fl_progressive,f_webp,q_auto");
 
   const response = await axios.post(
     `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,

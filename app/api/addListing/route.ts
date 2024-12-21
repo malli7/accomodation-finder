@@ -1,5 +1,4 @@
 import { firestoredb as db } from "@/app/firebaseConfig";
-// app/api/addListing/route.ts
 import { NextResponse } from "next/server";
 import {
   collection,
@@ -11,7 +10,6 @@ import {
 } from "firebase/firestore";
 import { currentUser } from "@clerk/nextjs/server";
 
-// Define the structure of the listing data
 interface ListingData {
   title: string;
   address: string;
@@ -43,14 +41,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Add the listing to the 'listings' collection
     const listingRef = await addDoc(collection(db, "listings"), {
       ...listingData,
       userId,
       timestamp: serverTimestamp(),
     });
 
-    // Update the user's 'listings' field with the new listing ID
     const userRef = doc(db, "users", userId);
     await updateDoc(userRef, {
       listings: arrayUnion(listingRef.id),

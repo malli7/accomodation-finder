@@ -1,5 +1,6 @@
 "use client";
 import React, { ReactNode, useState, useEffect } from "react";
+import AccoLoader from "./AccoLoader";
 
 interface GoogleMapsLoaderProps {
   children: ReactNode;
@@ -11,7 +12,7 @@ const GoogleMapsLoader: React.FC<GoogleMapsLoaderProps> = ({ children }) => {
     ["places"]
   );
 
-  return isLoaded ? <>{children}</> : <p>Loading Google Maps...</p>;
+  return isLoaded ? <>{children}</> : <AccoLoader />;
 };
 
 export default GoogleMapsLoader;
@@ -36,7 +37,7 @@ const useGoogleMapsLoader = (apiKey: string, libraries: string[]) => {
       )}`;
       script.async = true;
       script.defer = true;
-      script.id = "google-maps-script"; // Assign an ID for future reference
+      script.id = "google-maps-script"; 
       script.onload = initializeGoogleMaps;
       document.head.appendChild(script);
     } else if (window.google) {
