@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import {  Shield, Lock, Eye, FileText, ArrowRight } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { motion } from "framer-motion"
-import Footer from "@/app/components/Footer"
-import Nav from "@/app/components/Nav"
+import Image from "next/image";
+import Link from "next/link";
+import { Shield, Lock, Eye, FileText, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import Footer from "@/app/components/Footer";
+import Nav from "@/app/components/Nav";
 
 export default function PrivacyPage() {
   return (
     <div className="flex flex-col min-h-screen">
-     <Nav/>
+      <Nav />
 
       <main className="flex-1">
         <section className="py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
@@ -22,9 +22,12 @@ export default function PrivacyPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Privacy Policy</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
+                Privacy Policy
+              </h1>
               <p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto mb-12">
-                At Acco-Finder, we are committed to protecting your privacy and ensuring the security of your personal information.
+                At Acco-Finder, we are committed to protecting your privacy and
+                ensuring the security of your personal information.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -34,7 +37,7 @@ export default function PrivacyPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
                   alt="Data privacy concept"
                   width={600}
                   height={400}
@@ -46,9 +49,14 @@ export default function PrivacyPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h2 className="text-3xl font-semibold mb-6">Our Commitment to You</h2>
+                <h2 className="text-3xl font-semibold mb-6">
+                  Our Commitment to You
+                </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  We understand the importance of your personal data and are dedicated to maintaining its confidentiality. Our privacy policy outlines how we collect, use, and protect your information when you use our platform.
+                  We understand the importance of your personal data and are
+                  dedicated to maintaining its confidentiality. Our privacy
+                  policy outlines how we collect, use, and protect your
+                  information when you use our platform.
                 </p>
                 <ul className="space-y-4">
                   {[
@@ -90,19 +98,25 @@ export default function PrivacyPage() {
               {[
                 {
                   title: "Data Collection",
-                  description: "We only collect information that is necessary to provide you with our services and improve your experience on our platform.",
-                  image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80"
+                  description:
+                    "We only collect information that is necessary to provide you with our services and improve your experience on our platform.",
+                  image:
+                    "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80",
                 },
                 {
                   title: "Data Usage",
-                  description: "Your information is used solely for the purpose of providing and improving our services. We never sell your data to third parties.",
-                  image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80"
+                  description:
+                    "Your information is used solely for the purpose of providing and improving our services. We never sell your data to third parties.",
+                  image:
+                    "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
                 },
                 {
                   title: "Data Security",
-                  description: "We employ industry-standard security measures to protect your data from unauthorized access, disclosure, alteration, and destruction.",
-                  image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                }
+                  description:
+                    "We employ industry-standard security measures to protect your data from unauthorized access, disclosure, alteration, and destruction.",
+                  image:
+                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -119,8 +133,12 @@ export default function PrivacyPage() {
                         height={200}
                         className="rounded-lg mb-4 object-cover h-48 w-full"
                       />
-                      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground flex-grow">{item.description}</p>
+                      <h3 className="text-xl font-semibold mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-muted-foreground flex-grow">
+                        {item.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -138,7 +156,9 @@ export default function PrivacyPage() {
             >
               <h2 className="text-3xl font-bold mb-6">Your Rights</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                We respect your rights regarding your personal data. You have the right to access, correct, or delete your information at any time.
+                We respect your rights regarding your personal data. You have
+                the right to access, correct, or delete your information at any
+                time.
               </p>
             </motion.div>
             <motion.div
@@ -157,7 +177,7 @@ export default function PrivacyPage() {
         </section>
       </main>
 
-     <Footer/>
+      <Footer />
     </div>
-  )
+  );
 }

@@ -45,7 +45,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
                   alt="Students collaborating"
                   width={600}
                   height={400}
@@ -59,9 +59,11 @@ export default function AboutPage() {
               >
                 <h2 className="text-3xl font-semibold mb-6">Our Mission</h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  {
-                    " At Acco-Finder, we're on a mission to revolutionize the way Indian students in the USA find housing and build their support networks. We understand the challenges of studying abroad, and we're here to make your journey smoother, more connected, and ultimately more successful. "
-                  }
+                  At Acco-Finder, we're on a mission to revolutionize the way
+                  Indian students in the USA find housing and build their
+                  support networks. We understand the challenges of studying
+                  abroad, and we're here to make your journey smoother, more
+                  connected, and ultimately more successful.
                 </p>
                 <ul className="space-y-4">
                   {[
@@ -107,7 +109,7 @@ export default function AboutPage() {
                   description:
                     "Acco-Finder was born from the personal struggles of its founder, an Indian student navigating the complexities of studying in the USA.",
                   image:
-                    "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                    "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
                 },
                 {
                   year: "2024 November",
@@ -115,7 +117,7 @@ export default function AboutPage() {
                   description:
                     "We launched our platform, quickly gaining traction among Indian students across major US universities.",
                   image:
-                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
                 },
                 {
                   year: "2024 December",
@@ -123,7 +125,7 @@ export default function AboutPage() {
                   description:
                     "Acco-Finder continues to evolve, adding new features and expanding to more cities to serve a growing user base.",
                   image:
-                    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -179,7 +181,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80"
                 alt="Developer portrait"
                 width={200}
                 height={200}

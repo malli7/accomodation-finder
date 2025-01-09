@@ -3,6 +3,8 @@ import { useCallback, useRef, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { format } from "date-fns";
+import { ClipLoader } from "react-spinners";
+
 import {
   Calendar as CalendarIcon,
   Wifi,
@@ -57,7 +59,6 @@ interface ListingData {
   amenities: string[];
   rent: number;
   otherCharges: number;
-
   imageUrls: string[];
 }
 
@@ -80,6 +81,7 @@ export default function AddListing() {
   const [step, setStep] = useState(1);
   const [showOtherAmenityInput, setShowOtherAmenityInput] = useState(false);
   const [otherAmenity, setOtherAmenity] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   const form = useForm<ListingData>({
     defaultValues: {
@@ -102,21 +104,17 @@ export default function AddListing() {
   });
 
   const onSubmit: SubmitHandler<ListingData> = async (data) => {
-    // Prepare other amenities
     const otherAmenitiesArray = otherAmenity
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean);
 
-    // Add 'other' amenities to the amenities array and remove "other" if it exists
     data.amenities = [...data.amenities, ...otherAmenitiesArray].filter(
       (a) => a !== "other"
     );
-
-    setOtherAmenity(""); // Clear the 'otherAmenity' field
+    setOtherAmenity("");
 
     try {
-      // Send a POST request to the backend route
       const response = await fetch("/api/addListing", {
         method: "POST",
         headers: {
@@ -125,20 +123,20 @@ export default function AddListing() {
         body: JSON.stringify(data),
       });
 
-      // Check if the request was successful
       if (response.ok) {
         const result = await response.json();
         console.log("Listing added:", result.message);
 
-        // Clear the form fields
         form.reset();
 
-        // Redirect to the home page
         router.push("/home");
       } else {
         const errorData = await response.json();
         console.error("Failed to add listing:", errorData.error);
         alert("Failed to add listing: " + errorData.error);
+        form.reset();
+
+        router.refresh();
       }
     } catch (error) {
       console.error("Error adding listing:", error);
@@ -195,15 +193,24 @@ export default function AddListing() {
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    const uploadedUrls = await Promise.all(
-      files.map((file) => uploadImageToCloudinary(file))
-    );
+    setIsUploading(true);
 
-    // Update the form with the new image URLs
-    form.setValue("imageUrls", [
-      ...form.getValues("imageUrls"),
-      ...uploadedUrls,
-    ]);
+    try {
+      const uploadedUrls = await Promise.all(
+        files.map((file) => uploadImageToCloudinary(file))
+      );
+
+      // Update the form with the new image URLs
+      form.setValue("imageUrls", [
+        ...form.getValues("imageUrls"),
+        ...uploadedUrls,
+      ]);
+    } catch (error) {
+      alert("image upload failed");
+      router.refresh();
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const removeImage = (index: number) => {
@@ -670,6 +677,18 @@ export default function AddListing() {
                           </div>
                         </div>
 
+                        {isUploading && (
+                          <div className="flex justify-center items-center my-5">
+                            <ClipLoader
+                              size={50}
+                              color={"#007bff"}
+                              loading={isUploading}
+                            />
+                            <p className="text-[18px] ml-10 text-blue-600">
+                              Uploading images, please wait...
+                            </p>
+                          </div>
+                        )}
                         {/* Image Preview Section */}
                         {form.watch("imageUrls")?.length > 0 && (
                           <div className="mt-4 grid grid-cols-3 gap-4">

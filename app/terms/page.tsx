@@ -28,9 +28,9 @@ export default function TermsAndConditionsPage() {
                   Terms and Conditions
                 </h1>
                 <p className="text-xl mb-8">
-                  {
-                    "Please read these terms and conditions carefully before using Acco-Finder's services. By accessing or using our platform, you agree to be bound by these terms."
-                  }
+                  Please read these terms and conditions carefully before using
+                  Acco-Finder's services. By accessing or using our platform,
+                  you agree to be bound by these terms.
                 </p>
                 <Button size="lg" variant="secondary" asChild>
                   <a href="#key-points">View Key Points</a>
@@ -43,7 +43,7 @@ export default function TermsAndConditionsPage() {
                 className="md:w-1/2"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80"
                   alt="Legal document signing"
                   width={600}
                   height={400}
@@ -147,7 +147,7 @@ export default function TermsAndConditionsPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1512&q=80"
+                  src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80"
                   alt="Legal documents and laptop"
                   width={600}
                   height={400}
