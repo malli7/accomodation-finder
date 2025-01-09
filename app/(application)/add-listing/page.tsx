@@ -206,7 +206,7 @@ export default function AddListing() {
         ...uploadedUrls,
       ]);
     } catch (error) {
-      alert("image upload failed");
+      alert(`image upload failed due to ${error}`);
       router.refresh();
     } finally {
       setIsUploading(false);

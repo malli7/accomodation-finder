@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { MapPin, Filter, ChevronDown, XIcon } from "lucide-react";
+import { MapPin, Filter, ChevronDown } from "lucide-react";
 import LocationPopup from "./LocationPopup";
 import AccommodationCard from "./AccommodationCard";
 import GoogleMapsLoader from "../GoogleMapsLoader";

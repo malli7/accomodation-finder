@@ -59,11 +59,7 @@ export default function AboutPage() {
               >
                 <h2 className="text-3xl font-semibold mb-6">Our Mission</h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  At Acco-Finder, we're on a mission to revolutionize the way
-                  Indian students in the USA find housing and build their
-                  support networks. We understand the challenges of studying
-                  abroad, and we're here to make your journey smoother, more
-                  connected, and ultimately more successful.
+                 {" At Acco-Finder, we're on a mission to revolutionize the way Indian students in the USA find housing and build their support networks. We understand the challenges of studying abroad, and we're here to make your journey smoother, more connected, and ultimately more successful. "}
                 </p>
                 <ul className="space-y-4">
                   {[

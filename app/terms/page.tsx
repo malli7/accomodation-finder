@@ -28,9 +28,7 @@ export default function TermsAndConditionsPage() {
                   Terms and Conditions
                 </h1>
                 <p className="text-xl mb-8">
-                  Please read these terms and conditions carefully before using
-                  Acco-Finder's services. By accessing or using our platform,
-                  you agree to be bound by these terms.
+                  {"Please read these terms and conditions carefully before using Acco-Finder's services. By accessing or using our platform, you agree to be bound by these terms."}
                 </p>
                 <Button size="lg" variant="secondary" asChild>
                   <a href="#key-points">View Key Points</a>

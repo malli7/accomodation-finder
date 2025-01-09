@@ -93,8 +93,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have questions or concerns? We're here to help. Reach out to us
-              and we'll get back to you as soon as possible.
+              {"Have questions or concerns? We're here to help. Reach out to us and we'll get back to you as soon as possible."}
             </p>
           </motion.div>
 
@@ -231,16 +230,10 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-4">Our Commitment</h2>
                 <p className="text-gray-600 mb-4">
-                  At Acco-Finder, we're committed to making your transition to
-                  studying in the USA as smooth as possible. Our platform is
-                  designed to address the unique challenges faced by Indian
-                  students, providing not just accommodation solutions, but a
-                  supportive community to help you thrive.
+                  {"At Acco-Finder, we're committed to making your transition to cstudying in the USA as smooth as possible. Our platform is designed to address the unique challenges faced by Indian students, providing not just accommodation solutions, but a supportive community to help you thrive."}
                 </p>
                 <p className="text-gray-600">
-                  Whether you're looking for housing, seeking advice, or wanting
-                  to connect with fellow students, we're here to support you
-                  every step of the way.
+                  {"Whether you're looking for housing, seeking advice, or wanting to connect with fellow students, we're here to support you every step of the way."}
                 </p>
               </div>
               <div>
